@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "prettier --check && eslint .",
+    "lint:fix": "prettier --write && eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/Pavel-A-T/js-game-of-life/issues"
   },
-  "homepage": "https://github.com/Pavel-A-T/js-game-of-life#readme"
+  "homepage": "https://github.com/Pavel-A-T/js-game-of-life#readme",
+  "devDependencies": {
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-import": "^2.22.1",
+    "prettier": "2.1.2"
+  }
 }
