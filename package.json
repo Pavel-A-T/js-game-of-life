@@ -21,10 +21,12 @@
   },
   "homepage": "https://github.com/Pavel-A-T/js-game-of-life#readme",
   "devDependencies": {
+    "@types/jest": "^26.0.14",
     "eslint": "^7.11.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.0",
     "html-webpack-plugin": "^4.5.0",
     "husky": "^4.3.0",
     "jest": "^26.5.2",
@@ -46,5 +48,8 @@
     ],
     "*.{js,css,md}": "prettier --write"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@babel/core": "^7.11.6",
+    "babel-jest": "^26.5.2"
+  }
 }
