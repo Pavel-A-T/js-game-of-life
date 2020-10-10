@@ -1,0 +1,42 @@
+{
+  "name": "js-game-of-life",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" ",
+    "lint": "prettier --check && eslint .",
+    "lint:fix": "prettier --write && eslint . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pavel-A-T/js-game-of-life.git"
+  },
+  "author": "Pavel Titov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pavel-A-T/js-game-of-life/issues"
+  },
+  "homepage": "https://github.com/Pavel-A-T/js-game-of-life#readme",
+  "devDependencies": {
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-import": "^2.22.1",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "2.1.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --cache --fix"
+    ],
+    "*.{js,css,md}": "prettier --write"
+  }
+}
