@@ -22,7 +22,7 @@ function createTable(width, height) {
   return table;
 }
 
-function createCell(x, y, state) {
+function CreateCell(x, y, state) {
   this.x = x;
   this.y = y;
   this.state = state;
@@ -47,10 +47,10 @@ function getState() {
 function isAnyoneAlive() {
   for (let i = 0; i < field.length; i += 1) {
     if (field[i].state === true) {
-      return true;
+      return false; // TODO НЕ Ошибиться здесь еще раз!
     }
   }
-  return false;
+  return true;
 }
 
 /**
@@ -113,7 +113,7 @@ function getNumOfAliveNeighbours(x, y) {
 
 /**
  * получить новое состояние
- * @return field
+ *
  */
 function getNewState() {
   for (let i = 0; i < field.length; i += 1) {
@@ -136,13 +136,13 @@ function getNewState() {
  * первоначальное формирование поля
  * returns void
  */
-function drawField() {
+function drawField(htmlElement) {
   const table = createTable(WIDTH, HEIGHT);
   for (let j = 0; j < ROWS; j += 1) {
     const tr = document.createElement("tr");
     for (let i = 0; i < PLACES; i += 1) {
       const td = document.createElement("td");
-      cell = createCell(i, j, getState());
+      cell = new CreateCell(i, j, getState());
       field.push(cell);
       if (cell.state) {
         td.setAttribute("bgcolor", color);
@@ -151,7 +151,7 @@ function drawField() {
     }
     table.appendChild(tr);
   }
-  return table;
+  htmlElement.appendChild(table);
 }
 
 function getNewField() {
@@ -207,7 +207,7 @@ function start() {
       clearInterval(timer);
       console.log("Every body died! =(");
     }
-  }, 2200);
+  }, 1500);
 }
 
 const buttonShort = document.createElement("button");
@@ -221,7 +221,7 @@ buttonShort.addEventListener("click", function () {
   if (appEl == null) {
     appEl = document.getElementById("app");
   } else if (timer == null) {
-    appEl.appendChil(drawField());
+    drawField(appEl);
     start();
   }
 });
